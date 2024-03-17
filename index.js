@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
             const targetUser = onlineUsers.find((user) => user.email === message.institutionsEmail.email)
             console.log("found", targetUser)
             if (targetUser) {
-                io.to(targetUser.socketId).emit('messagefromtheserver', { message: message.message, senderEmail: decodeToken.email , recieverEmail:message.institutionsEmail.email});
+                io.to(targetUser.socketId).emit('messagefromtheserver', { message: message.message, senderEmail: message.institutionsEmail.email , recieverEmail:decodeToken.email});
             }
             console.log(message.message)
         });
